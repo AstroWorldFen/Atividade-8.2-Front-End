@@ -1,0 +1,168 @@
+/* src/components/IMCCalculator.css */
+
+.imc-container {
+    background: rgba(0, 0, 0, 0.85); /* Fundo preto com 85% de opacidade */
+    padding: 40px 30px;
+    border-radius: 15px;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5); /* Sombra mais escura para melhor contraste */
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s forwards;
+  }
+  
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .imc-container:hover {
+    transform: translateY(-5px);
+  }
+  
+  .imc-container::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, #6b73ff, #000dff);
+    border-radius: 50%;
+    z-index: -1;
+    transition: all 0.5s ease;
+  }
+  
+  .imc-container:hover::before {
+    top: -60%;
+    left: -60%;
+  }
+  
+  .imc-container h1 {
+    margin-bottom: 30px;
+    font-size: 2em;
+    color: #ffffff; /* Texto branco para melhor contraste */
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  .imc-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .input-group {
+    margin-bottom: 20px;
+    position: relative;
+  }
+  
+  .input-group input {
+    width: 100%;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 30px;
+    background: #2c2c2c; /* Fundo escuro para inputs */
+    color: #ffffff; /* Texto branco nos inputs */
+    font-size: 1em;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .input-group input::placeholder {
+    color: #cccccc; /* Placeholder em cinza claro */
+  }
+  
+  .input-group input:focus {
+    background: #3a3a3a; /* Fundo um pouco mais claro ao focar */
+    box-shadow: 0 5px 15px rgba(107, 115, 255, 0.3);
+    outline: none;
+  }
+  
+  .calcular-btn {
+    padding: 15px 20px;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(45deg, #6b73ff, #000dff);
+    color: #ffffff;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+  
+  .calcular-btn:hover {
+    background: linear-gradient(135deg, #6b73ff, #000dff);
+    transform: scale(1.05);
+  }
+  
+  .resultado {
+    margin-top: 30px;
+    padding: 20px;
+    border-radius: 15px;
+    background: rgba(107, 115, 255, 0.2); /* Fundo azul claro com opacidade */
+    box-shadow: 0 10px 20px rgba(107, 115, 255, 0.4);
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  .resultado p {
+    font-size: 1.1em;
+    margin: 10px 0;
+    color: #ffffff; /* Texto branco para melhor contraste */
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    } 
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Classe para esconder visualmente elementos, mas manter acessível */
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap; 
+    border: 0;
+  }
+  
+  /* Responsividade */
+  @media (max-width: 480px) {
+    .imc-container {
+      padding: 30px 20px;
+      max-width: 90%;
+    }
+  
+    .imc-container h1 {
+      font-size: 1.5em;
+      margin-bottom: 20px;
+    }
+  
+    .calcular-btn {
+      padding: 12px 18px;
+      font-size: 0.9em;
+    }
+  
+    .resultado {
+      padding: 15px;
+    }
+  
+    .resultado p {
+      font-size: 1em;
+    }
+  }
+  
+  
+  
